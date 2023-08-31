@@ -9,7 +9,6 @@ services:
       
   django: &django
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
     ports:
       - 8000:8000
     env_file:
@@ -18,42 +17,23 @@ services:
       - .:/django
     depends_on:
       - db
+    command: python manage.py runserver 0.0.0.0:8000
 
   type_check:
-    build: .
+    <<: *django
     depends_on:
       - django
     profiles:
       - test
-    env_file:
-      - .env.dev
-    volumes:
-      - .:/django
     command: mypy .
 
-  unit_test:
-    build: .
+  test:
+    <<: *django
     depends_on:
       - django
     profiles:
       - test
-    env_file:
-      - .env.dev
-    volumes:
-      - .:/django
     command: python manage.py test
-
-  e2e_test:
-    build: .
-    depends_on:
-      - django
-    profiles:
-      - test
-    env_file:
-      - .env.dev
-    volumes:
-      - .:/django
-    command: python manage.py behave
 
 volumes:
   postgres_data:
