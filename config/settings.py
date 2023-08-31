@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 from environs import Env
 
@@ -27,6 +27,10 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG", default=False)
+
+# Required to run Playwright tests
+if DEBUG:
+    os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
 # which hosts can access the site
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=[""])
@@ -93,8 +97,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": env.dj_db_url(
         "DATABASE_URL",
-        default="sqlite://db.sqlite3"
-        # default="postgres://postgres@db/postgres",  # change to "sqlite:///db.sqlite3" if you dont want to use Docker / PostgreSQL
+        default="sqlite:///db.sqlite3",  # change to "sqlite:///db.sqlite3" if you dont want to use Docker / PostgreSQL
     )
 }
 

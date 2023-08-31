@@ -8,6 +8,7 @@ Readymade Django project, complete with:
 * Folder restructure ✅
 * Static setup ✅
 * Environs[django] ✅
+* Behave-django for BDD ✅
 * Model-Bakery ✅
 * Psycopg2 ✅
 * Gunicorn ✅
@@ -27,20 +28,22 @@ mkdir your_projet_name
 cd your_projet_name
 git clone https://github.com/charliewhu/Dj_Project_Template.git .
 
-// install dependencies and activate virtual environment
+// OPTIONAL: install dependencies locally
+// this is only required for module intellisense to work
 poetry install
-source .venv/bin/activate
 
-// run server (using local sqlite3 db)
-./manage.py runserver
+// run type check
+docker-compose run type_check
 
-// run tests 
-./manage.py test
+// run unit tests
+docker-compose run unit_test
 
-// run type checks
-mypy .
+// run e2e tests
+docker-compose run e2e_test
 
-// run server (docker)
+// run server
 docker-compose up
-```
 
+// run nginx server
+docker-compose -f docker-compose.prod.yaml up
+```

@@ -13,9 +13,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Run type checks in docker container
         run: docker-compose -f docker-compose.yaml run type_check
-
       - name: Run django tests in docker container
         run: docker-compose -f docker-compose.yaml run test
