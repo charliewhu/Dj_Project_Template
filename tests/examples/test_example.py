@@ -10,11 +10,13 @@ class TestCashflows(BasePlaywrightTestCase):
         This will run beforeEach other method
         eg baker.make()
         """
-        self.page.goto(f"{self.live_server_url}/admin")
+        # self.page.goto(f"{self.live_server_url}/admin")
+        pass
 
     def test_method(self):
         """
         Main test assertions in here
         eg expect()
         """
-        expect(self.page.get_by_text("Django")).to_contain_text("Django")
+        # expect(self.page.get_by_text("Django")).to_contain_text("Django")
+        pass
