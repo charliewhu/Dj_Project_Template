@@ -1,6 +1,6 @@
 import os
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect, Expect
 
 
 class BasePlaywrightTestCase(StaticLiveServerTestCase):
@@ -22,3 +22,6 @@ class BasePlaywrightTestCase(StaticLiveServerTestCase):
         super().tearDownClass()
         cls.browser.close()
         cls.playwright.stop()
+
+
+expect.set_options(timeout=500)
