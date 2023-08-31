@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.3.1/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>
+    {% if title %}
+      {{ title }}
+    {% else %}
+      Django App
+    {% endif %}
+  </title>
+
+</head>
+<body class="container mx-auto max-w-4xl px-2">
+ {% block main %}
+   
+ {% endblock main %}
+</body>
+</html>
