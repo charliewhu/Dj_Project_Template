@@ -1,5 +1,5 @@
 # Pull base image
-FROM python:3.10
+FROM mcr.microsoft.com/playwright/python:v1.35.0-jammy
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
