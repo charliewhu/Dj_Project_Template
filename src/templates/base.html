@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<link>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.3.1/dist/full.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{% static 'css/pico/pico.min.css' %}" >
 
   <title>
     {% if title %}
@@ -16,7 +15,7 @@
   </title>
 
 </head>
-<body class="container mx-auto max-w-4xl px-2">
+<body class="container">
  {% block main %}
    
  {% endblock main %}
