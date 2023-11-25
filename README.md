@@ -25,8 +25,8 @@ Readymade Django project, complete with:
 
 ```bash
 // clone repo
-mkdir your_projet_name
-cd your_projet_name
+mkdir your_project_name
+cd your_project_name
 git clone https://github.com/charliewhu/Dj_Project_Template.git .
 
 // OPTIONAL: install dependencies locally
@@ -34,17 +34,17 @@ git clone https://github.com/charliewhu/Dj_Project_Template.git .
 poetry install
 
 // run type check
-docker-compose run type_check
+docker compose run type_check
 
 // run unit tests
-docker-compose run unit_test
+docker compose run unit_test
 
 // run e2e tests
-docker-compose run e2e_test
+docker compose run e2e_test
 
 // run server
-docker-compose up
+docker compose up
 
 // run nginx server
-docker-compose -f docker-compose.prod.yaml up
+docker compose -f docker-compose.prod.yaml up
 ```
