@@ -13,6 +13,10 @@ import os
 from pathlib import Path
 from environs import Env
 
+import django_stubs_ext
+
+django_stubs_ext.monkeypatch()
+
 env = Env()
 env.read_env()
 
