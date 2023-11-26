@@ -27,13 +27,21 @@ services:
       - test
     command: pyright
 
-  test:
+  unit_test:
     <<: *django
     depends_on:
       - django
     profiles:
       - test
-    command: python manage.py test
+    command: python manage.py test src
+
+  e2e_test:
+    <<: *django
+    depends_on:
+      - django
+    profiles:
+      - test
+    command: python manage.py test tests_functional
 
 volumes:
   postgres_data:
